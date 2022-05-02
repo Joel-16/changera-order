@@ -5,10 +5,10 @@ export class Order extends BaseEntity{
    @PrimaryGeneratedColumn()
    id : number
 
-   @Column()
+   @Column({ nullable : true})
    email : string
 
-   @Column({type: 'json'})
+   @Column({type: 'json', nullable: true})
    item
    
    @CreateDateColumn({type: 'timestamp'})

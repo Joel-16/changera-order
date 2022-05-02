@@ -10,7 +10,7 @@ async function bootstrap() {
         transport: microservices_1.Transport.RMQ,
         options: {
             urls: [conn],
-            queue: 'food',
+            queue: 'order',
             queueOptions: {
                 durable: false
             },

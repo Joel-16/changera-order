@@ -12,13 +12,15 @@ const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
+const food_entity_1 = require("./entities/food.entity");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             config_1.ConfigModule.forRoot({ isGlobal: true, }),
-            typeorm_1.TypeOrmModule.forRoot()
+            typeorm_1.TypeOrmModule.forRoot(),
+            typeorm_1.TypeOrmModule.forFeature([food_entity_1.Order])
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

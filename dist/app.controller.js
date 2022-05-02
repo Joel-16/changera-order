@@ -17,16 +17,44 @@ let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
-    handleOrder(data) {
-        return this.appService.getHello(data);
+    async createOrder(data) {
+        let order = await this.appService.createOrder(data);
+        return order;
+    }
+    getAllOrders(data) {
+        let order = this.appService.getAllOrders(data);
+    }
+    getOneOrder(data) {
+        return this.appService.getAllOrders(data);
+    }
+    deleteOrder(data) {
+        return this.appService.deleteOrder(data);
     }
 };
 __decorate([
-    (0, microservices_1.EventPattern)('order'),
+    (0, microservices_1.EventPattern)('create-order'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "createOrder", null);
+__decorate([
+    (0, microservices_1.EventPattern)('get-all-orders'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], AppController.prototype, "handleOrder", null);
+], AppController.prototype, "getAllOrders", null);
+__decorate([
+    (0, microservices_1.EventPattern)('get-one-order'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getOneOrder", null);
+__decorate([
+    (0, microservices_1.EventPattern)('delete-order'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "deleteOrder", null);
 AppController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [app_service_1.AppService])

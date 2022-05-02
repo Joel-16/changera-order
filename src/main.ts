@@ -9,7 +9,7 @@ async function bootstrap() {
     transport: Transport.RMQ,
     options: {
       urls: [conn],
-      queue: 'food',
+      queue: 'order',
       queueOptions: {
         durable: false
       },

@@ -6,7 +6,7 @@ module.exports =
 {
   type: 'postgres',
   url: process.env.DATABASE_URL || "postgres://postgres:5432@localhost:5432/food",
-  entities: ["dist/**/*.entities{.ts,.js}"],
+  entities: ["dist/**/*.entity{.ts,.js}"],
   migrations: ["dist/migration/*.js"],
   synchronize: true,
   autoLoadEntities: true,
